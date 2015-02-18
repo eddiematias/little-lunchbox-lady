@@ -1,0 +1,23 @@
+{
+  "name": "Little-lunchbox-lady",
+  "version": "1.0.0",
+  "authors": [
+    "Eddie Matias"
+  ],
+  "description": "Forist's Website",
+  "main": "src/",
+  "license": "MIT",
+  "homepage": "http://www.littlelunchboxlady.com",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "font-awesome": "~4.3"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
