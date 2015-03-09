@@ -44,7 +44,8 @@ a.active {
 
 h1, h2, h3, h4, h5, h6 {
 	.heading-font;
-	font-weight: 700;
+	font-weight: 400;
+	color: @brand-primary;
 }
 
 .img-centered {
@@ -79,7 +80,7 @@ h1, h2, h3, h4, h5, h6 {
 // Custom Navigation Bar
 
 .navbar-default {
-	background-color: @gray-darkest;
+	background-color: @brand-grey;
 	border-color: transparent;
 	.navbar-brand {
 		color: @brand-primary;
@@ -90,19 +91,24 @@ h1, h2, h3, h4, h5, h6 {
         &.active {
         	color: darken(@brand-primary, 10%);
         }
+        padding-top: 10px;
+        width:200px;
+	    	img { 
+	       		width: 100%;
+			}
 	}
 	.navbar-collapse {
 		border-color: fade(white, 2%);
 	}
 	.navbar-toggle {
-		background-color: @brand-primary;
-		border-color: @brand-primary;
+		background-color: darken(@brand-grey, 10%);
+		border-color: darken(@brand-grey, 10%);
 		.icon-bar {
 			background-color: white;
 		}
 		&:hover,
 		&:focus {
-			background-color: @brand-primary;
+			background-color: darken(@brand-grey, 20%);
 		}
 	}
     .nav {
@@ -110,29 +116,46 @@ h1, h2, h3, h4, h5, h6 {
     		a {
     			.heading-font;
     			font-weight: 400;
+    			//font-size: 1.3em;
     			letter-spacing: 1px;
     			color: white;
     			&:hover,
     			&:focus {
-    				color: @brand-primary;
+    				color: darken(@brand-primary, 10%);
     				outline: none;
+    				transition: all 0.3s;
     			}
     		}
     	}
     }
 	.navbar-nav>.active>a {
-		border-radius: 0;
+		border-radius: 0 !important;
 		color: white;
-		background-color: @brand-primary;
+		background-color: @brand-grey;
+		border-bottom: 3px solid darken(@brand-primary, 10%);
+		transition: all 0.3s;
+		-webkit-transition: all 0.3s;
+	    -moz-transition: all 0.3s;
 	}
 	.navbar-nav>.active>a:hover,
 	.navbar-nav>.active>a:focus {
 		color: white;
-		background-color: darken(@brand-primary, 10%);
+		background-color: @brand-grey;
+		border-bottom: 3px solid darken(@brand-primary, 10%);
+		transition: all 0.3s;
+		-webkit-transition: all 0.3s;
+	    -moz-transition: all 0.3s;
 	}
 }
 
 @media(min-width:768px) {
+	.nav {
+    	li {
+    		a {
+    			font-size: 1.1em !important;
+    		}
+    	}
+    } 
     .navbar-default {
     	background-color: transparent;
         padding: 25px 0;
@@ -141,23 +164,71 @@ h1, h2, h3, h4, h5, h6 {
         transition: padding 0.3s;
         border: none;
 	    .navbar-brand {
-	        font-size: 2em;
+	        //font-size: 2em;
 	        -webkit-transition: all 0.3s;
 	        -moz-transition: all 0.3s;
 	        transition: all 0.3s;
+	        width: 280px;
+	        padding: 3px 15px 0px 15px;
+	        img{
+	        	width: 100%;
+	        }
+	     
 	    }
 		.navbar-nav>.active>a {
 			border-radius: 3px;
 		}
     }
     .navbar-default.navbar-shrink {
-    	background-color: @gray-darkest;
+    	background-color: @brand-grey;
         padding: 10px 0;
 		.navbar-brand {
-	        font-size: 1.5em;
+	    	width: 280px;
+	        padding: 3px 15px 0px 15px;
+	        img{
+	        	width: 100%;
+	        }
+
 	    }    
 	}
 }
+  @media (min-width: 992px) {
+   	.nav {
+    	li {
+    		a {
+    			font-size: 1.3em !important;
+    		}
+    	}
+    }
+    .navbar-default {
+
+	    .navbar-brand {
+	        //font-size: 2em;
+	        -webkit-transition: all 0.3s;
+	        -moz-transition: all 0.3s;
+	        transition: all 0.3s;
+	        width: 400px;
+	        padding: 3px 15px 0px 15px;
+	        img{
+	        	width: 100%;
+	        }
+	     
+	    }
+		.navbar-nav>.active>a {
+			border-radius: 3px;
+		}
+    } 
+    .navbar-default.navbar-shrink {
+    	
+		.navbar-brand {
+			width:310px;
+	    	img { 
+	       		width: 100%;
+	        //padding: 0px 15px;
+			}
+	    }    
+	}
+  }
 
 header {
 	background-image: url('../img/header-bg.jpg');
@@ -172,6 +243,7 @@ header {
 		padding-bottom: 50px;
 		.intro-lead-in {
 			.serif-font;
+			text-shadow: 0 0 20px @light-black;
 			font-style: italic;
 			font-size: 22px;
 			line-height: 22px;
@@ -179,6 +251,7 @@ header {
 		}
 		.intro-heading {
 			.heading-font;
+			text-shadow: 0 0 20px @light-black;
 			font-weight: 700;
 			font-size: 50px;
 			line-height: 50px;
@@ -222,38 +295,47 @@ section {
     h3.section-subheading {
 		font-size: 16px;
 		.serif-font;
+		line-height: 22px;
 		text-transform: none;
 		font-style: italic;
 		font-weight: 400;
 		margin-bottom: 75px;
+
     }
 }
 
 @media(min-width:768px) {
 	section {
-		padding: 150px 0;
+		padding: 100px 0;
 	}
 }
 
-// Services Section
+// how-to Section
 
-.service-heading {
+.how-to-heading {
 	margin: 15px 0;
 	text-transform: none;
+	span {
+		color: @brand-grey;
+		display: block;
+	}
 }
 
-// Portfolio Section
+// menu Section
 
-#portfolio {
-    .portfolio-item {
+#menu {
+	background-image: url('../img/logo-flowers-2.png');
+	background-position: top right;
+	background-repeat: no-repeat;
+    .menu-item {
         margin: 0 0 15px;
         right: 0;
-        .portfolio-link {
+        .menu-link {
             display: block;
             position: relative;
             max-width: 400px;
             margin: 0 auto;
-            .portfolio-hover {
+            .menu-hover {
                 background: fade(@brand-primary, 90%);
                 position: absolute;
                 width: 100%;
@@ -265,7 +347,7 @@ section {
                 &:hover {
                     opacity: 1;
                 }
-                .portfolio-hover-content {
+                .menu-hover-content {
                     position: absolute;
                     width: 100%;
                     height: 20px;
@@ -284,7 +366,7 @@ section {
                 }                
             }            
         }
-        .portfolio-caption {
+        .menu-caption {
         	max-width: 400px;
         	margin: 0 auto;
         	background-color: white;
@@ -308,8 +390,8 @@ section {
 }
 
 @media(min-width:767px) {
-    #portfolio {
-        .portfolio-item {
+    #menu {
+        .menu-item {
             margin: 0 0 30px;
         }
     }
@@ -528,12 +610,12 @@ aside.clients {
 // Contact Section
 
 section#contact {
-	background-color: @gray-darkest;
-	background-image: url('../img/map-image.png');
-	background-position: center;
+	background-color: @gray-lighter;
+	background-image: url('../img/logo-flowers.png');
+	background-position: left;
 	background-repeat: no-repeat;
 	.section-heading {
-		color: white;
+		
 	}
 	.form-group {
 		margin-bottom: 25px;
@@ -583,6 +665,7 @@ footer {
 	padding: 25px 0;
 	text-align: center;
 	span.copyright {
+		color: @brand-grey;
 		line-height: 40px;
 		.heading-font;
 		text-transform: none;
@@ -602,7 +685,7 @@ ul.social-buttons {
 	li {
 		a {
 			display: block;
-			background-color: @gray-darkest;
+			background-color: @brand-grey;
 			height: 40px;
 			width: 40px;
 			border-radius: 100%;
@@ -629,7 +712,7 @@ ul.social-buttons {
 	outline: none;
 }
 
-.portfolio-modal {
+.menu-modal {
 	.modal-content {
 	    border-radius: 0;
 	    background-clip: border-box;
@@ -644,19 +727,27 @@ ul.social-buttons {
 	    	font-size: 3em;
 		}
 		p {
+			font-size: 1.2em;
 			margin-bottom: 30px;
+			span {
+				color: @brand-primary;
+				display: block;
+			}
 		}
 		p.item-intro {
 			margin: 20px 0 30px;
 			.serif-font;
 			font-style: italic;
 			font-size: 16px;
+
 		}
 		ul.list-inline {
 			margin-bottom: 30px;
 			margin-top: 0;
 		}
 		img {
+			margin-left: auto;
+			margin-right: auto;
 			margin-bottom: 30px;
 		}
 	}
